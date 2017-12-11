@@ -1,6 +1,5 @@
 import bg.uni.sofia.fmi.mjt.sentiment.MovieReviewSentimentAnalyzer;
 
-import java.io.FileNotFoundException;
 
 public class somthing {
     public static void main(String args[]){

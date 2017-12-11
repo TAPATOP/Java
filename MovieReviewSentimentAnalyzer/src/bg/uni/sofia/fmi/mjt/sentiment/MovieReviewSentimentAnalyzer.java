@@ -63,9 +63,7 @@ public class MovieReviewSentimentAnalyzer implements SentimentAnalyzer {
     }
 
     // Additional functions //
-    public boolean isRecorded(String word) {
-        return records.containsKey(word);
-    }
+
 
     // Private functions //
 

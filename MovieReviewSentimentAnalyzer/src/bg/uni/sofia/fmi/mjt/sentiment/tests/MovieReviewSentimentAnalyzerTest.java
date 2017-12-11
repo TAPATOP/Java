@@ -2,63 +2,75 @@ package bg.uni.sofia.fmi.mjt.sentiment.tests;
 
 import bg.uni.sofia.fmi.mjt.sentiment.MovieReviewSentimentAnalyzer;
 
+import org.junit.ClassRule;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 
 import java.io.*;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class MovieReviewSentimentAnalyzerTest {
     @Rule
     public TemporaryFolder folder = new TemporaryFolder();
 
-    @Test
-    public void constructorReadsAndLoadsProperly() throws IOException{
-        // Creates a temporary stopwords file //
-        File stopwordsTempFile= folder.newFile("stopwords.txt");
-        Writer fileWriter = new FileWriter(stopwordsTempFile);
-        String tempTextToWrite =
-                "fruit\n" +
-                        "banana\n" +
-                        "orange\n" +
-                        "third reich\n" +
-                        "allo' ha bar\n" +
-                        "the\n" +
-                        "my grandson Nathan\n";
+    public MovieReviewSentimentAnalyzer setup(){
+            // Creates a temporary stopwords file //
+            try(Writer fileWriter= new FileWriter(folder.newFile("stopwords.txt"))) {
+                String tempTextToWrite =
+                        "fruit\n" +
+                                "banana\n" +
+                                "orange\n" +
+                                "third reich\n" +
+                                "allo' ha bar\n" +
+                                "the\n" +
+                                "my grandson Nathan\n";
 
-        fileWriter.write(tempTextToWrite);
-        fileWriter.close();
+                fileWriter.write(tempTextToWrite);
+                fileWriter.close();
+            }catch(IOException a){
+                System.out.println("Error with creating temp stopwords file");
+            }
 
-        // Creates a temporary reviews file //
-        File reviewsTempFile = folder.newFile("MovieReviews.txt");
-        fileWriter = new FileWriter(reviewsTempFile);
-        tempTextToWrite =
+            // Creates a temporary reviews file //
+            try(Writer fileWriter = new FileWriter(folder.newFile("MovieReviews.txt"))) {
+                String tempTextToWrite =
                         "1 You could hate it for the same reason .\n" +
-                        "1 There 's little to recommend Snow Dogs , unless one considers cliched dialogue and perverse escapism a source of high hilarity .\n" +
-                        "1 Kung Pow is Oedekerk 's realization of his childhood dream to be in a martial-arts flick , and proves that sometimes the dreams of youth should remain just that .\n" +
-                        "4 The performances are an abso@lute joy .";
-        fileWriter.write(tempTextToWrite);
-        fileWriter.close();
+                                "1 There 's little to recommend Snow Dogs , unless one considers cliched dialogue and perverse escapism a source of high hilarity .\n" +
+                                "1 Kung Pow is Oedekerk 's realization of his childhood dream to be in a martial-arts flick , and proves that sometimes the dreams of youth should remain just that .\n" +
+                                "4 The performances are an abso@lute joy .";
+                fileWriter.write(tempTextToWrite);
+                fileWriter.close();
+            }catch(IOException a){
+                System.out.println("Error with creating temp reviews file");
+            }
 
+            return new MovieReviewSentimentAnalyzer(folder.getRoot().getAbsolutePath() + "\\MovieReviews.txt",
+                    folder.getRoot().getAbsolutePath() + "\\stopwords.txt");
+    }
+
+    //@
+    //public MovieReviewSentimentAnalyzer analyzer = setup();
+
+    @Test
+    public void constructorReadsAndLoadsProperly(){
         // Creates and prepares the analyzer //
-        MovieReviewSentimentAnalyzer object = new MovieReviewSentimentAnalyzer(
-                reviewsTempFile.getAbsolutePath(),
-                stopwordsTempFile.getAbsolutePath());
+        MovieReviewSentimentAnalyzer analyzer = setup();
 
-        assertEquals("Reads the first stopword properly", true, object.isStopWord("fruit"));
-        assertEquals("Reads the last stopword properly", true, object.isStopWord("my grandson Nathan"));
-        assertEquals("Has recorded a( capitalized) word properly", true, object.getWordSentiment("kung") >= 0);
-        assertEquals("Hasn't recorded a stopword", true, object.getWordSentiment("the") == -1);
-        assertEquals("Hasn't recorded an invalid word", true, object.getWordSentiment("abso@lute") == -1);
-        assertEquals("Uses non- standard delimeters properly", true, object.getWordSentiment("abso") >= 0 && object.getWordSentiment("lute") >= 0);
-        assertEquals("Doesnt think delimeters are words", true, object.getWordSentiment(" ") == -1);
-        assertEquals("Doesnt think nothing is a word", false, object.getWordSentiment(null) >= 0|| object.getWordSentiment("") >= 0);
+        assertTrue("Reads the first stopword properly", analyzer.isStopWord("fruit"));
+        assertTrue("Reads the last stopword properly", analyzer.isStopWord("my grandson Nathan"));
+        assertTrue("Has recorded a( capitalized) word properly", analyzer.getWordSentiment("kung") >= 0);
+        assertTrue("Hasn't recorded a stopword", analyzer.getWordSentiment("the") == -1);
+        assertTrue("Hasn't recorded an invalid word",  analyzer.getWordSentiment("abso@lute") == -1);
+        assertTrue("Uses non- standard delimeters properly", analyzer.getWordSentiment("abso") >= 0 && analyzer.getWordSentiment("lute") >= 0);
+        assertTrue("Doesnt think delimeters are words", analyzer.getWordSentiment(" ") == -1);
+        assertTrue("Hasn't recorded \"nothing\"", analyzer.getWordSentiment(null) == -1 && analyzer.getWordSentiment("") == -1);
     }
 
     @Test
     public void getReviewSentimentAsName(){
+        MovieReviewSentimentAnalyzer analyzer = setup();
     }
 
     @Test
