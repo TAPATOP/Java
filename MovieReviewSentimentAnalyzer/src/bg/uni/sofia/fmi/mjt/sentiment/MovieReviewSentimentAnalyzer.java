@@ -23,17 +23,52 @@ public class MovieReviewSentimentAnalyzer implements SentimentAnalyzer {
     // Interface implementations //
     @Override
     public double getReviewSentiment(String review) {
-        return 0;
+        String[] words = review.toLowerCase().split("[^a-z0-9]");
+        double reviewRating = 0;
+        int reviewLength = 0;
+        boolean textIsKnown = false;
+
+        for (String word : words) {
+            if (word.length() > 0) {
+                if (getWordSentiment(word) != -1) {
+                    reviewRating += getWordSentiment(word);
+                    textIsKnown = true;
+                }
+                reviewLength++;
+            }
+        }
+
+        if (!textIsKnown) return -1;
+
+        return reviewRating / reviewLength;
     }
 
     @Override
     public String getReviewSentimentAsName(String review) {
+        double value = getReviewSentiment(review);
+
+        if(value >= 0 && value < 0.5){
+            return "negative";
+        }
+        if(value >= 0.5 && value < 1.5){
+            return "somewhat negative";
+        }
+        if(value >= 1.5 && value < 2.5){
+            return "neutral";
+        }
+        if(value >= 2.5 && value < 3.5){
+            return "somewhat positive";
+        }
+        if(value >= 3.5 && value <= 4.0){
+            return "positive";
+        }
+
         return null;
     }
 
     @Override
     public double getWordSentiment(String word) {
-        if(records.containsKey(word)) return records.get(word).getRating();
+        if (records.containsKey(word)) return records.get(word).getRating();
         return -1;
     }
 
@@ -54,7 +89,11 @@ public class MovieReviewSentimentAnalyzer implements SentimentAnalyzer {
 
     @Override
     public int getSentimentDictionarySize() {
-        return 0;
+        int count = 0;
+        for(HashMap.Entry<String, Record> entry: records.entrySet()) {
+            count++;
+        }
+        return count;
     }
 
     @Override
@@ -67,48 +106,47 @@ public class MovieReviewSentimentAnalyzer implements SentimentAnalyzer {
 
     // Private functions //
 
-    private void loadStopwords(File stopwordsFile){
-        try(Scanner reader = new Scanner(stopwordsFile)){
-            while(reader.hasNextLine()) {
+    private void loadStopwords(File stopwordsFile) {
+        try (Scanner reader = new Scanner(stopwordsFile)) {
+            while (reader.hasNextLine()) {
                 stopwords.add(reader.nextLine());
             }
             reader.close();
-        }catch(FileNotFoundException a){
+        } catch (FileNotFoundException a) {
             System.out.println("I couldn't find the stopwords file");
         }
     }
 
-    private void loadReviews(File reviewsFile){
-        try(Scanner reader = new Scanner(reviewsFile)){
-            while(reader.hasNextLine()){
+    private void loadReviews(File reviewsFile) {
+        try (Scanner reader = new Scanner(reviewsFile)) {
+            while (reader.hasNextLine()) {
                 int rating = reader.nextInt();
 
                 String[] words = parseLine(reader);
 
-                for ( String word : words) {
-                    if(!wordIsValid(word)) continue;
+                for (String word : words) {
+                    if (!wordIsValid(word)) continue;
                     recordWord(word, rating);
                 }
             }
-        }catch(FileNotFoundException a){
+        } catch (FileNotFoundException a) {
             System.out.println("Couldn't open the reviews file");
         }
     }
 
-    private String[] parseLine(Scanner input){
+    private String[] parseLine(Scanner input) {
         return input.nextLine().toLowerCase().split("[^a-z0-9]");
     }
 
-    private boolean wordIsValid(String word){
+    private boolean wordIsValid(String word) {
         return word.length() > 0;
     }
 
-    private void recordWord(String word, int rating){
-        if(!stopwords.contains(word)){
-            if(records.containsKey(word)){
+    private void recordWord(String word, int rating) {
+        if (!stopwords.contains(word)) {
+            if (records.containsKey(word)) {
                 records.get(word).addOneRating(rating);
-            }
-            else{
+            } else {
                 records.put(word, new Record(rating));
             }
         }
@@ -141,7 +179,7 @@ public class MovieReviewSentimentAnalyzer implements SentimentAnalyzer {
         }
 
         public double getRating(){
-            return totalSumOfRatings / totalCount;
+            return ((double) totalSumOfRatings)/ totalCount;
         }
 
         // Functions //

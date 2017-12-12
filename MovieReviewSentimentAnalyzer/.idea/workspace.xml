@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c645b6b4-41ea-47bb-a7b5-f72c6625a95d" name="Default" comment="Works on the tests">
+    <list default="true" id="c645b6b4-41ea-47bb-a7b5-f72c6625a95d" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MovieReviewSentimentAnalyzer/somthing.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MovieReviewSentimentAnalyzer/bg/uni/sofia/fmi/mjt/sentiment/MovieReviewSentimentAnalyzer$Record.class" afterPath="$PROJECT_DIR$/out/production/MovieReviewSentimentAnalyzer/bg/uni/sofia/fmi/mjt/sentiment/MovieReviewSentimentAnalyzer$Record.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MovieReviewSentimentAnalyzer/bg/uni/sofia/fmi/mjt/sentiment/MovieReviewSentimentAnalyzer.class" afterPath="$PROJECT_DIR$/out/production/MovieReviewSentimentAnalyzer/bg/uni/sofia/fmi/mjt/sentiment/MovieReviewSentimentAnalyzer.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MovieReviewSentimentAnalyzer/bg/uni/sofia/fmi/mjt/sentiment/tests/MovieReviewSentimentAnalyzerTest.class" afterPath="$PROJECT_DIR$/out/production/MovieReviewSentimentAnalyzer/bg/uni/sofia/fmi/mjt/sentiment/tests/MovieReviewSentimentAnalyzerTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MovieReviewSentimentAnalyzer/somthing.class" afterPath="$PROJECT_DIR$/out/production/MovieReviewSentimentAnalyzer/somthing.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bg/uni/sofia/fmi/mjt/sentiment/MovieReviewSentimentAnalyzer.java" afterPath="$PROJECT_DIR$/src/bg/uni/sofia/fmi/mjt/sentiment/MovieReviewSentimentAnalyzer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bg/uni/sofia/fmi/mjt/sentiment/tests/MovieReviewSentimentAnalyzerTest.java" afterPath="$PROJECT_DIR$/src/bg/uni/sofia/fmi/mjt/sentiment/tests/MovieReviewSentimentAnalyzerTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/somthing.java" afterPath="$PROJECT_DIR$/src/somthing.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/somthing.java" afterPath="$PROJECT_DIR$/src/something.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,54 +26,56 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="somthing.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/somthing.java">
+      <file leaf-file-name="something.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/something.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+            <state relative-caret-position="255">
+              <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MovieReviewSentimentAnalyzer.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MovieReviewSentimentAnalyzer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/bg/uni/sofia/fmi/mjt/sentiment/MovieReviewSentimentAnalyzer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="151" column="8" lean-forward="false" selection-start-line="151" selection-start-column="8" selection-end-line="151" selection-end-column="8" />
+            <state relative-caret-position="680">
+              <caret line="97" column="0" lean-forward="true" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#MovieReviewSentimentAnalyzer#0;class#MovieReviewSentimentAnalyzer#0" expanded="false" />
+                <element signature="method#getReviewSentiment#0;class#MovieReviewSentimentAnalyzer#0" expanded="false" />
+                <element signature="method#getReviewSentimentAsName#0;class#MovieReviewSentimentAnalyzer#0" expanded="false" />
+                <element signature="method#getWordSentiment#0;class#MovieReviewSentimentAnalyzer#0" expanded="false" />
                 <element signature="method#loadStopwords#0;class#MovieReviewSentimentAnalyzer#0" expanded="false" />
                 <element signature="method#loadReviews#0;class#MovieReviewSentimentAnalyzer#0" expanded="false" />
+                <element signature="e#3696#3697#0" expanded="true" />
+                <element signature="e#3816#3817#0" expanded="true" />
                 <element signature="method#recordWord#0;class#MovieReviewSentimentAnalyzer#0" expanded="false" />
-                <element signature="e#3628#3629#0" expanded="true" />
-                <element signature="e#3689#3690#0" expanded="true" />
-                <element signature="e#3841#3842#0" expanded="true" />
-                <element signature="e#3882#3883#0" expanded="true" />
+                <element signature="e#4779#4780#0" expanded="true" />
+                <element signature="e#4850#4851#0" expanded="true" />
+                <element signature="e#5002#5003#0" expanded="true" />
+                <element signature="e#5043#5044#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MovieReviewSentimentAnalyzerTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MovieReviewSentimentAnalyzerTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/bg/uni/sofia/fmi/mjt/sentiment/tests/MovieReviewSentimentAnalyzerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="17" column="4" lean-forward="false" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#3445#3446#0" expanded="true" />
-                <element signature="e#3508#3509#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="85">
+              <caret line="5" column="22" lean-forward="true" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MovieReviews.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MovieReviews.txt">
+      <file leaf-file-name="stopwords.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/stopwords.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="35" lean-forward="false" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
+            <state relative-caret-position="159">
+              <caret line="74" column="2" lean-forward="false" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="2" />
               <folding />
             </state>
           </provider>
@@ -82,8 +84,8 @@
       <file leaf-file-name="SentimentAnalyzer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/bg/uni/sofia/fmi/mjt/sentiment/SentimentAnalyzer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-204">
-              <caret line="12" column="45" lean-forward="true" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
+            <state relative-caret-position="-187">
+              <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -108,6 +110,10 @@
       <find>only</find>
       <find>inept</find>
       <find>isRecorded</find>
+      <find>this</find>
+      <find>of</find>
+      <find>like</find>
+      <find>it</find>
     </findStrings>
     <replaceStrings>
       <replace>getWordSentiment</replace>
@@ -128,11 +134,12 @@
         <option value="$PROJECT_DIR$/src/main.java" />
         <option value="$PROJECT_DIR$/src/stopwords.txt" />
         <option value="$PROJECT_DIR$/src/MovieReviews.txt" />
-        <option value="$PROJECT_DIR$/src/bg/uni/sofia/fmi/mjt/sentiment/SentimentAnalyzer.java" />
         <option value="$PROJECT_DIR$/src/bg/uni/sofia/fmi/mjt/sentiment/MovieReviewSentimentAnalyzerTest.java" />
         <option value="$PROJECT_DIR$/src/bg/uni/sofia/fmi/mjt/sentiment/test/MovieReviewSentimentAnalyzerTest.java" />
         <option value="$PROJECT_DIR$/src/bg/uni/sofia/fmi/mjt/sentiment/Record.java" />
+        <option value="$PROJECT_DIR$/src/bg/uni/sofia/fmi/mjt/sentiment/SentimentAnalyzer.java" />
         <option value="$PROJECT_DIR$/src/somthing.java" />
+        <option value="$PROJECT_DIR$/src/something.java" />
         <option value="$PROJECT_DIR$/src/bg/uni/sofia/fmi/mjt/sentiment/MovieReviewSentimentAnalyzer.java" />
         <option value="$PROJECT_DIR$/src/bg/uni/sofia/fmi/mjt/sentiment/tests/MovieReviewSentimentAnalyzerTest.java" />
       </list>
@@ -229,7 +236,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.MovieReviewSentimentAnalyzerTest">
+  <component name="RunManager" selected="Application.something">
     <configuration name="MovieReviewSentimentAnalyzerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -361,9 +368,9 @@
       <properties />
       <listeners />
     </configuration>
-    <configuration name="somthing" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="something" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="somthing" />
+      <option name="MAIN_CLASS_NAME" value="something" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -376,15 +383,15 @@
       <envs />
     </configuration>
     <list size="3">
-      <item index="0" class="java.lang.String" itemvalue="Application.somthing" />
+      <item index="0" class="java.lang.String" itemvalue="Application.something" />
       <item index="1" class="java.lang.String" itemvalue="JUnit.MovieReviewSentimentAnalyzerTest.constructorReadsAndLoadsProperly" />
       <item index="2" class="java.lang.String" itemvalue="JUnit.MovieReviewSentimentAnalyzerTest" />
     </list>
     <recent_temporary>
       <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.MovieReviewSentimentAnalyzerTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.MovieReviewSentimentAnalyzerTest.constructorReadsAndLoadsProperly" />
-        <item index="2" class="java.lang.String" itemvalue="Application.somthing" />
+        <item index="0" class="java.lang.String" itemvalue="Application.something" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.MovieReviewSentimentAnalyzerTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.MovieReviewSentimentAnalyzerTest.constructorReadsAndLoadsProperly" />
       </list>
     </recent_temporary>
   </component>
@@ -405,7 +412,7 @@
       <workItem from="1512373883368" duration="30095000" />
       <workItem from="1512657151074" duration="8990000" />
       <workItem from="1512670216751" duration="5422000" />
-      <workItem from="1512920905303" duration="9622000" />
+      <workItem from="1512920905303" duration="23522000" />
     </task>
     <task id="LOCAL-00001" summary="Pushing through IntelliJ">
       <created>1512671396328</created>
@@ -414,43 +421,50 @@
       <option name="project" value="LOCAL" />
       <updated>1512671396329</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Works on the tests">
+      <created>1512991504510</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1512991504511</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="MovieReviewSentimentAnalyzerTest - 2017.12.10 at 19h 50m 01s.xml">
+    <history-entry file="MovieReviewSentimentAnalyzerTest - 2017.12.11 at 14h 24m 33s.xml">
       <configuration name="MovieReviewSentimentAnalyzerTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MovieReviewSentimentAnalyzerTest - 2017.12.10 at 19h 51m 03s.xml">
+    <history-entry file="MovieReviewSentimentAnalyzerTest - 2017.12.11 at 14h 24m 57s.xml">
       <configuration name="MovieReviewSentimentAnalyzerTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MovieReviewSentimentAnalyzerTest - 2017.12.10 at 19h 55m 24s.xml">
+    <history-entry file="MovieReviewSentimentAnalyzerTest - 2017.12.11 at 14h 26m 02s.xml">
       <configuration name="MovieReviewSentimentAnalyzerTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MovieReviewSentimentAnalyzerTest - 2017.12.10 at 19h 56m 30s.xml">
+    <history-entry file="MovieReviewSentimentAnalyzerTest - 2017.12.11 at 14h 27m 16s.xml">
       <configuration name="MovieReviewSentimentAnalyzerTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MovieReviewSentimentAnalyzerTest - 2017.12.10 at 20h 04m 00s.xml">
+    <history-entry file="MovieReviewSentimentAnalyzerTest - 2017.12.11 at 14h 28m 56s.xml">
       <configuration name="MovieReviewSentimentAnalyzerTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MovieReviewSentimentAnalyzerTest - 2017.12.10 at 20h 09m 55s.xml">
+    <history-entry file="MovieReviewSentimentAnalyzerTest - 2017.12.11 at 22h 11m 57s.xml">
       <configuration name="MovieReviewSentimentAnalyzerTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MovieReviewSentimentAnalyzerTest - 2017.12.10 at 20h 22m 42s.xml">
+    <history-entry file="MovieReviewSentimentAnalyzerTest - 2017.12.11 at 22h 12m 17s.xml">
       <configuration name="MovieReviewSentimentAnalyzerTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MovieReviewSentimentAnalyzerTest - 2017.12.10 at 20h 35m 05s.xml">
+    <history-entry file="MovieReviewSentimentAnalyzerTest - 2017.12.11 at 22h 13m 27s.xml">
       <configuration name="MovieReviewSentimentAnalyzerTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MovieReviewSentimentAnalyzerTest - 2017.12.10 at 20h 35m 20s.xml">
+    <history-entry file="MovieReviewSentimentAnalyzerTest - 2017.12.11 at 22h 13m 55s.xml">
       <configuration name="MovieReviewSentimentAnalyzerTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MovieReviewSentimentAnalyzerTest - 2017.12.10 at 20h 39m 01s.xml">
+    <history-entry file="MovieReviewSentimentAnalyzerTest - 2017.12.11 at 22h 38m 54s.xml">
       <configuration name="MovieReviewSentimentAnalyzerTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62453000" />
+    <option name="totallyTimeSpent" value="76353000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -458,14 +472,14 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.50292826" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26644737" sideWeight="0.5058565" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26644737" sideWeight="0.49707174" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26644737" sideWeight="0.4941435" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -495,11 +509,12 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Pushing through IntelliJ" />
     <MESSAGE value="Works on the tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Works on the tests" />
+    <MESSAGE value="First submission" />
+    <option name="LAST_COMMIT_MESSAGE" value="First submission" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -510,13 +525,6 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/bg/uni/sofia/fmi/mjt/sentiment/Record.java" />
-    <entry file="file://$PROJECT_DIR$/src/stopwords.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1564">
-          <caret line="92" column="4" lean-forward="false" selection-start-line="92" selection-start-column="4" selection-end-line="92" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/MovieReviews.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -525,48 +533,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/something.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/stopwords.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="74" column="2" lean-forward="false" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/bg/uni/sofia/fmi/mjt/sentiment/SentimentAnalyzer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-204">
-          <caret line="12" column="45" lean-forward="true" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
+        <state relative-caret-position="-187">
+          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/somthing.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/bg/uni/sofia/fmi/mjt/sentiment/tests/MovieReviewSentimentAnalyzerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="17" column="4" lean-forward="false" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3445#3446#0" expanded="true" />
-            <element signature="e#3508#3509#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/bg/uni/sofia/fmi/mjt/sentiment/MovieReviewSentimentAnalyzer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="151" column="8" lean-forward="false" selection-start-line="151" selection-start-column="8" selection-end-line="151" selection-end-column="8" />
+        <state relative-caret-position="680">
+          <caret line="97" column="0" lean-forward="true" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#MovieReviewSentimentAnalyzer#0;class#MovieReviewSentimentAnalyzer#0" expanded="false" />
+            <element signature="method#getReviewSentiment#0;class#MovieReviewSentimentAnalyzer#0" expanded="false" />
+            <element signature="method#getReviewSentimentAsName#0;class#MovieReviewSentimentAnalyzer#0" expanded="false" />
+            <element signature="method#getWordSentiment#0;class#MovieReviewSentimentAnalyzer#0" expanded="false" />
             <element signature="method#loadStopwords#0;class#MovieReviewSentimentAnalyzer#0" expanded="false" />
             <element signature="method#loadReviews#0;class#MovieReviewSentimentAnalyzer#0" expanded="false" />
+            <element signature="e#3696#3697#0" expanded="true" />
+            <element signature="e#3816#3817#0" expanded="true" />
             <element signature="method#recordWord#0;class#MovieReviewSentimentAnalyzer#0" expanded="false" />
-            <element signature="e#3628#3629#0" expanded="true" />
-            <element signature="e#3689#3690#0" expanded="true" />
-            <element signature="e#3841#3842#0" expanded="true" />
-            <element signature="e#3882#3883#0" expanded="true" />
+            <element signature="e#4779#4780#0" expanded="true" />
+            <element signature="e#4850#4851#0" expanded="true" />
+            <element signature="e#5002#5003#0" expanded="true" />
+            <element signature="e#5043#5044#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/bg/uni/sofia/fmi/mjt/sentiment/tests/MovieReviewSentimentAnalyzerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="22" lean-forward="true" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
