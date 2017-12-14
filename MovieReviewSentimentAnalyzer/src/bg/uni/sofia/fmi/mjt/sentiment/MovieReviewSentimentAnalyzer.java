@@ -1,10 +1,7 @@
 package bg.uni.sofia.fmi.mjt.sentiment;
 
 import java.io.*;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Scanner;
+import java.util.*;
 
 public class MovieReviewSentimentAnalyzer implements SentimentAnalyzer {
 
@@ -30,11 +27,13 @@ public class MovieReviewSentimentAnalyzer implements SentimentAnalyzer {
         for (String word : words) {
             if (word.length() > 0) {
                 if (getWordSentiment(word) != -1) {
+                    // System.out.println(word + " " + getWordSentiment(word));
                     reviewRating += getWordSentiment(word);
                     reviewLength++;
                 }
             }
         }
+        // System.out.println(reviewLength);
 
         if (reviewLength == 0) return -1;
 
@@ -150,12 +149,16 @@ public class MovieReviewSentimentAnalyzer implements SentimentAnalyzer {
         }
     }
 
+//    private List convertMapToList(Map map){
+//        return null;
+//    }
+
     // Member variables //
     private HashMap<String, Record> records;
     private HashSet<String> stopwords;
 
     // Nested Classes //
-    public class Record {
+    private class Record {
 
         // Constructors //
         Record(){
@@ -198,4 +201,6 @@ public class MovieReviewSentimentAnalyzer implements SentimentAnalyzer {
         private int totalSumOfRatings;
         private int totalCount;
     }
+
+
 }

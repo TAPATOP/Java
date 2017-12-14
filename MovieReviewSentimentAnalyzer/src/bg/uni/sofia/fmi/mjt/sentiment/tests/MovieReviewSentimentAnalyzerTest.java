@@ -10,37 +10,24 @@ import org.junit.rules.TemporaryFolder;
 import java.io.*;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class MovieReviewSentimentAnalyzerTest {
-    @Rule
-    public TemporaryFolder folder = new TemporaryFolder();
 
-    public MovieReviewSentimentAnalyzer setup(String text){
-            // Creates a temporary reviews file //
-            try(Writer fileWriter = new FileWriter(folder.newFile("MovieReviews.txt"))) {
-                fileWriter.write(text);
-                fileWriter.close();
-            }catch(IOException a){
-                System.out.println("Error with creating temp reviews file");
-            }
+    private String testsFolder = System.getProperty("user.dir") + "\\src\\bg\\uni\\sofia\\fmi\\mjt\\sentiment\\tests\\";
 
-            return new MovieReviewSentimentAnalyzer(folder.getRoot().getAbsolutePath() + "\\MovieReviews.txt",
-                    System.getProperty("user.dir") + "\\src\\stopwords.txt");
-    }
+    private MovieReviewSentimentAnalyzer analyzer = new MovieReviewSentimentAnalyzer
+            ( testsFolder + "MovieReviews.txt",
+                    testsFolder + "stopwords.txt");
 
-    //@
-    //public MovieReviewSentimentAnalyzer analyzer = setup();
+    private double delta = 0.00001;
 
     @Test
-    public void constructorReadsAndLoadsProperly(){
-        String text =
-                "1 You could hate it for the same reason .\n" +
-                        "1 There 's little to recommend Snow Dogs , unless one considers cliched dialogue and perverse escapism a source of high hilarity .\n" +
-                        "1 Kung Pow is Oedekerk 's realization of his childhood dream to be in a martial-arts flick , and proves that sometimes the dreams of youth should remain just that .\n" +
-                        "4 The performances are an abso@lute joy .";;
-
-        MovieReviewSentimentAnalyzer analyzer = setup(text);
+    public void constructorShouldReadAndLoadReviewsAndStopwordsProperly(){
+        MovieReviewSentimentAnalyzer analyzer = new MovieReviewSentimentAnalyzer
+                ( testsFolder + "constructorTest.txt",
+                        testsFolder + "stopwords.txt");
 
         assertTrue("Reads the first stopword properly", analyzer.isStopWord("a"));
         assertTrue("Reads the last stopword properly", analyzer.isStopWord("yourselves"));
@@ -54,17 +41,48 @@ public class MovieReviewSentimentAnalyzerTest {
     }
 
     @Test
-    public void calculatesReviewSentimentProperly() {
-      // assertEquals("You orange hate performances", );
+    public void shouldGetReviewSentiment() {
+        assertEquals("Reads \"Dire disappointment: dull and unamusing freakshow\"",
+                0.21857, analyzer.getReviewSentiment("Dire disappointment: dull and unamusing freakshow"), delta);
+        assertEquals("Reads \"Immersive ecstasy: energizing artwork!\"",
+                4.0, analyzer.getReviewSentiment("Immersive ecstasy: energizing artwork!"), delta);
+        assertEquals("Reads \"A weak script that ends with a quick and boring finale.",
+                1.4637421952077123, analyzer.getReviewSentiment("A weak script that ends with a quick and boring finale."), delta);
+        // assertEquals("Reads \"The funniest comedy of the year, good work! Don't miss it!",
+        //         2.2778941186748383, analyzer.getReviewSentiment("The funniest comedy of the year, good work! Don't miss it!"), delta);
     }
 
     @Test
-    public void getReviewSentimentAsName(){
-        // MovieReviewSentimentAnalyzer analyzer = setup();
+    public void shouldGetReviewSentimentAsName(){
+        assertEquals("Reads \"Dire disappointment: dull and unamusing freakshow\"",
+                "negative", analyzer.getReviewSentimentAsName("Dire disappointment: dull and unamusing freakshow"));
+        assertEquals("Reads \"Immersive ecstasy: energizing artwork!\"",
+                "positive", analyzer.getReviewSentimentAsName("Immersive ecstasy: energizing artwork!"));
+        assertEquals("Reads \"A weak script that ends with a quick and boring finale.",
+                "somewhat negative", analyzer.getReviewSentimentAsName("A weak script that ends with a quick and boring finale."));
+        assertEquals("Knows \"spurdo- sparde krastavica :DDD\" is not recorded",
+                "unknown", analyzer.getReviewSentimentAsName("spurdo- sparde krastavica :DDD"));
     }
 
     @Test
-    public void getWordSentiment(){
+    public void shouldGetWordSentiment(){
+        assertEquals("Checks if analyzer knows \"kudesiwe\"", -1, analyzer.getWordSentiment("kudesiwe"), delta);
+        assertEquals("Checks if analyzer knows \"dire\"", 0.0, analyzer.getWordSentiment("dire"), delta);
+        assertEquals("Checks if analyzer knows \"dull\"", 0.892857, analyzer.getWordSentiment("dull"), delta);
+        assertEquals("Checks if analyzer knows \"disappointment\"", 0.2, analyzer.getWordSentiment("disappointment"), delta);
+        assertEquals("Checks if analyzer knows \"freakshow\"", 0.0, analyzer.getWordSentiment("freakshow"), delta);
+        assertEquals("Checks if analyzer knows \"ecstasy\"", 4.0, analyzer.getWordSentiment("ecstasy"), delta);
+        assertEquals("Checks if analyzer knows \"kudesiwe\"", -1, analyzer.getWordSentiment("kudesiwe"), delta);
+        assertEquals("Checks if analyzer knows \"skateboards\"", 4.0, analyzer.getWordSentiment("skateboards"), delta);
+        assertEquals("Checks if analyzer knows \"staggering\"", 4.0, analyzer.getWordSentiment("staggering"), delta);
+        assertEquals("Checks if analyzer knows \"achievements\"", 3.5, analyzer.getWordSentiment("achievements"), delta);
+        assertEquals("Checks if analyzer knows \"popular\"", 3.25, analyzer.getWordSentiment("popular"), delta);
+        assertEquals("Checks if analyzer knows \"spells\"", 3.0, analyzer.getWordSentiment("spells"), delta);
+        assertEquals("Checks if analyzer knows \"international\"", 2.6, analyzer.getWordSentiment("international"), delta);
+        assertEquals("Checks if analyzer knows \"snowball\"", 2.0, analyzer.getWordSentiment("snowball"), delta);
+        assertEquals("Checks if analyzer knows \"dude\"", 1.75, analyzer.getWordSentiment("dude"), delta);
+        assertEquals("Checks if analyzer knows \"mediterranean \"", 1.0, analyzer.getWordSentiment("mediterranean"), delta);
+        assertEquals("Checks if analyzer knows \"cash\"", 0.0, analyzer.getWordSentiment("cash"), delta);
     }
 
     @Test
@@ -80,11 +98,17 @@ public class MovieReviewSentimentAnalyzerTest {
     }
 
     @Test
-    public void getSentimentDictionarySize(){
+    public void shouldKnowDictionarySize(){
+        assertEquals("Knows the number of unique words", 15079, analyzer.getSentimentDictionarySize());
     }
 
     @Test
-    public void isStopWord(){
+    public void shouldKnowStopwords(){
+        assertTrue("Knows \"aren't\" is a stopword", analyzer.isStopWord("aren't"));
+        assertTrue("Knows \"any\" is a stopword", analyzer.isStopWord("any"));
+        assertTrue("Knows \"themselves\" is a stopword", analyzer.isStopWord("themselves"));
+        assertTrue("Knows \"so\" is a stopword", analyzer.isStopWord("so"));
+        assertFalse("Knows \"benis\" is NOT a stopword", analyzer.isStopWord("benis"));
     }
 
 }
