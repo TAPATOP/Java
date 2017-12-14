@@ -26,19 +26,17 @@ public class MovieReviewSentimentAnalyzer implements SentimentAnalyzer {
         String[] words = review.toLowerCase().split("[^a-z0-9]");
         double reviewRating = 0;
         int reviewLength = 0;
-        boolean textIsKnown = false;
 
         for (String word : words) {
             if (word.length() > 0) {
                 if (getWordSentiment(word) != -1) {
                     reviewRating += getWordSentiment(word);
-                    textIsKnown = true;
+                    reviewLength++;
                 }
-                reviewLength++;
             }
         }
 
-        if (!textIsKnown) return -1;
+        if (reviewLength == 0) return -1;
 
         return reviewRating / reviewLength;
     }
@@ -63,7 +61,7 @@ public class MovieReviewSentimentAnalyzer implements SentimentAnalyzer {
             return "positive";
         }
 
-        return null;
+        return "unknown";
     }
 
     @Override
