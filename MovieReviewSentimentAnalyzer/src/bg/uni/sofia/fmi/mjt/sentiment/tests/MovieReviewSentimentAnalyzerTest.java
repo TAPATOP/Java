@@ -1,32 +1,24 @@
 package bg.uni.sofia.fmi.mjt.sentiment.tests;
 
 import bg.uni.sofia.fmi.mjt.sentiment.MovieReviewSentimentAnalyzer;
-
-import org.junit.BeforeClass;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.TemporaryFolder;
 
-import java.io.*;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class MovieReviewSentimentAnalyzerTest {
 
     private String testsFolder = System.getProperty("user.dir") + "\\src\\bg\\uni\\sofia\\fmi\\mjt\\sentiment\\tests\\";
 
     private MovieReviewSentimentAnalyzer analyzer = new MovieReviewSentimentAnalyzer
-            ( testsFolder + "MovieReviews.txt",
+            (testsFolder + "MovieReviews.txt",
                     testsFolder + "stopwords.txt");
 
     private double delta = 0.00001;
 
     @Test
-    public void constructorShouldReadAndLoadReviewsAndStopwordsProperly(){
+    public void constructorShouldReadAndLoadReviewsAndStopwordsProperly() {
         MovieReviewSentimentAnalyzer analyzer = new MovieReviewSentimentAnalyzer
-                ( testsFolder + "constructorTest.txt",
+                (testsFolder + "constructorTest.txt",
                         testsFolder + "stopwords.txt");
 
         assertTrue("Reads the first stopword properly", analyzer.isStopWord("a"));
@@ -34,7 +26,7 @@ public class MovieReviewSentimentAnalyzerTest {
         assertTrue("Has recorded a( capitalized) word properly", analyzer.getWordSentiment("kung") >= 0);
         assertTrue("Hasn't recorded stopword \"the\"", analyzer.getWordSentiment("the") == -1);
         assertTrue("Hasn't recorded stopword \"an\"", analyzer.getWordSentiment("an") == -1);
-        assertTrue("Hasn't recorded an invalid word",  analyzer.getWordSentiment("abso@lute") == -1);
+        assertTrue("Hasn't recorded an invalid word", analyzer.getWordSentiment("abso@lute") == -1);
         assertTrue("Uses non- standard delimeters properly", analyzer.getWordSentiment("abso") >= 0 && analyzer.getWordSentiment("lute") >= 0);
         assertTrue("Doesnt think delimeters are words", analyzer.getWordSentiment(" ") == -1);
         assertTrue("Hasn't recorded \"nothing\"", analyzer.getWordSentiment(null) == -1 && analyzer.getWordSentiment("") == -1);
@@ -53,7 +45,7 @@ public class MovieReviewSentimentAnalyzerTest {
     }
 
     @Test
-    public void shouldGetReviewSentimentAsName(){
+    public void shouldGetReviewSentimentAsName() {
         assertEquals("Reads \"Dire disappointment: dull and unamusing freakshow\"",
                 "negative", analyzer.getReviewSentimentAsName("Dire disappointment: dull and unamusing freakshow"));
         assertEquals("Reads \"Immersive ecstasy: energizing artwork!\"",
@@ -65,7 +57,7 @@ public class MovieReviewSentimentAnalyzerTest {
     }
 
     @Test
-    public void shouldGetWordSentiment(){
+    public void shouldGetWordSentiment() {
         assertEquals("Checks if analyzer knows \"kudesiwe\"", -1, analyzer.getWordSentiment("kudesiwe"), delta);
         assertEquals("Checks if analyzer knows \"dire\"", 0.0, analyzer.getWordSentiment("dire"), delta);
         assertEquals("Checks if analyzer knows \"dull\"", 0.892857, analyzer.getWordSentiment("dull"), delta);
@@ -86,24 +78,36 @@ public class MovieReviewSentimentAnalyzerTest {
     }
 
     @Test
-    public void getMostFrequentWords(){
+    public void shouldGetMostFrequentWords() {
+        assertTrue("Knows \"film\" is a top 10 common word", analyzer.getMostFrequentWords(10).contains("film"));
+        assertTrue("Knows \"movie\" is a top 10 common word", analyzer.getMostFrequentWords(10).contains("movie"));
+        assertTrue("Knows \"film\" is a top 2 common word", analyzer.getMostFrequentWords(2).contains("film"));
+        assertFalse("Knows \"like\" is NOT a top 3 common word", analyzer.getMostFrequentWords(3).contains("like"));
     }
 
     @Test
-    public void getMostPositiveWords(){
+    public void shouldGetMostPositiveWords() {
+        assertTrue("Knows \"depictions\" is a top 10 positive word", analyzer.getMostPositiveWords(10).contains("depictions"));
+        assertTrue("Knows \"skeleton\" is a top 10 positive word", analyzer.getMostPositiveWords(10).contains("skeleton"));
+        assertTrue("Knows \"kudos\" is a top 10 positive word", analyzer.getMostPositiveWords(10).contains("kudos"));
+        assertFalse("Knows \"film\" is a NOT top 10 positive word", analyzer.getMostPositiveWords(10).contains("film"));
     }
 
     @Test
-    public void getMostNegativeWords(){
+    public void shouldGetMostNegativeWords() {
+        assertTrue("Knows \"claptrap\" is a top 10 negative word", analyzer.getMostNegativeWords(10).contains("claptrap"));
+        assertTrue("Knows \"cancer\" is a top 10 negative word", analyzer.getMostNegativeWords(10).contains("cancer"));
+        assertTrue("Knows \"turd\" is a top 10 negative word", analyzer.getMostNegativeWords(10).contains("turd"));
+        assertFalse("Knows \"good\" is NOT a top 10 negative word", analyzer.getMostNegativeWords(10).contains("good"));
     }
 
     @Test
-    public void shouldKnowDictionarySize(){
+    public void shouldKnowDictionarySize() {
         assertEquals("Knows the number of unique words", 15079, analyzer.getSentimentDictionarySize());
     }
 
     @Test
-    public void shouldKnowStopwords(){
+    public void shouldKnowStopwords() {
         assertTrue("Knows \"aren't\" is a stopword", analyzer.isStopWord("aren't"));
         assertTrue("Knows \"any\" is a stopword", analyzer.isStopWord("any"));
         assertTrue("Knows \"themselves\" is a stopword", analyzer.isStopWord("themselves"));

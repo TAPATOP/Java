@@ -1,5 +1,7 @@
 import bg.uni.sofia.fmi.mjt.sentiment.MovieReviewSentimentAnalyzer;
 
+import java.util.Collection;
+
 
 public class something {
     public static void main(String args[]){
@@ -10,5 +12,7 @@ public class something {
         String text = "Dire disappointment: dull and unamusing freakshow";
         System.out.println(analyzer.getReviewSentiment(text));
         System.out.println(analyzer.getReviewSentimentAsName(text));
+
+        Collection<String> coll = analyzer.getMostPositiveWords(10);
     }
 }
